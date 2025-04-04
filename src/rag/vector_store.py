@@ -29,7 +29,7 @@ def store_vectors(csv_path):
         raise ValueError(f"❌ Missing columns in CSV: {missing_cols}")
 
     # Convert dataset to text format (concatenating important columns)
-    texts = df.apply(lambda row: f"Hotel: {row['hotel']}, Revenue: {row['adr']}, Country: {row['country']}", axis=1).tolist()
+    texts = df.apply(lambda row: f"Hotel: {row['hotel']}, Revenue: {row['adr']}, Country: {row['country']}, Reservation Date: {row['reservation_date']}", axis=1).tolist()
 
     # Ensure "models" directory exists
     os.makedirs(os.path.dirname(VECTOR_STORE_PATH), exist_ok=True)
